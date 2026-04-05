@@ -17,7 +17,7 @@ import com.example.backend.models.candidate;
 public class CandidateController {
     
     @PostMapping("/addcandidate")
-    public candidate addCandidate(@RequestBody candidate candidate){
+    public String addCandidate(@RequestBody candidate candidate){
         return new CandidateRepo().addCandidate(candidate);
     }
     
