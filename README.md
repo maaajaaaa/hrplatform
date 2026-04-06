@@ -1,2 +1,2 @@
 # hrplatform
-The task is to implement Java (Maven) project for adding, updating, deleting and searching job candidates and their skills (basic CRUD operations).
+Kao najzanimljiviji deo zadatka smatram razdvajanje odgovornosti između modela, servisa, kontrolera i repozitorijuma. Zato sam za rešenje izabrala Springboot framework gde je struktura jednostavna i omogućava lako raščlanjivanje problema na jasne celine.
