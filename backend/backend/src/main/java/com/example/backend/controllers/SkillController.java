@@ -8,16 +8,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backend.db.dao.SkillRepo;
 import com.example.backend.models.skill;
+import com.example.backend.services.SkillService;
 
 @RestController
 @RequestMapping("/skills")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class SkillController {
+
+    private final SkillService skillService;
     
+    public SkillController(SkillService skillService) {
+        this.skillService = skillService;
+    }
+
     @PostMapping("/addskills")
     public String addSkills(@RequestBody List<skill> skills){
-        return new SkillRepo().addSkills(skills);
+        return skillService.addSkills(skills);
     }
 }

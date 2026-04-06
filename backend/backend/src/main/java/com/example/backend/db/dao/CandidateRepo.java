@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import com.example.backend.db.DB;
 import com.example.backend.models.candidate;
 
-public class CandidateRepo {
+public class CandidateRepo implements CandidateRepoInterface {
 
     public String addCandidate(candidate candidate) {
         //check if candidate already exists or email is already used

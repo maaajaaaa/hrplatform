@@ -7,7 +7,7 @@ import java.util.List;
 import com.example.backend.db.DB;
 import com.example.backend.models.skill;
 
-public class SkillRepo {
+public class SkillRepo implements SkillRepoInterface {
 
     public String addSkills(List<skill> skills) {
         try(

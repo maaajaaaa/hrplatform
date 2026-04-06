@@ -7,7 +7,7 @@ import java.sql.Connection;
 import com.example.backend.db.DB;
 import com.example.backend.models.candidate;
 
-public class CandidateSkillRepo {
+public class CandidateSkillRepo implements CandidateSkillRepoInterface {
 
     public String addSkillToCandidate(int candidate, int skill) {
         try (

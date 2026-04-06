@@ -9,27 +9,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.backend.db.dao.CandidateSkillRepo;
 import com.example.backend.models.candidate;
+import com.example.backend.services.CandidateSkillService;
 
 @RestController
 @RequestMapping("/candidate-skill")
 @CrossOrigin(origins = "http://localhost:4200/")
 public class CandidateSkillController {
+
+    private final CandidateSkillService candidateSkillService;
     
+    public CandidateSkillController(CandidateSkillService candidateSkillService) {
+        this.candidateSkillService = candidateSkillService;
+    }
+
     @PostMapping("/addskill/{candidate}/{skill}")
     public String addSkillToCandidate(@PathVariable int candidate, @PathVariable int skill) {
-        return new CandidateSkillRepo().addSkillToCandidate(candidate, skill);
+        return candidateSkillService.addSkillToCandidate(candidate, skill);
     }
     
     @GetMapping("/removeskill/{candidate}/{skill}")
     public String removeSkillFromCandidate(@PathVariable int candidate, @PathVariable int skill) {
-        return new CandidateSkillRepo().removeSkillFromCandidate(candidate, skill);
+        return candidateSkillService.removeSkillFromCandidate(candidate, skill);
     }
     
     @GetMapping("/getskilledcandidates/{skill}")
     public List<candidate> getSkilledCandidates(@PathVariable int skill) {
-        return new CandidateSkillRepo().getSkilledCandidates(skill);
+        return candidateSkillService.getSkilledCandidates(skill);
     }
 
 }
