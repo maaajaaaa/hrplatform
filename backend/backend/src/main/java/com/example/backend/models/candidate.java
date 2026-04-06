@@ -9,6 +9,14 @@ public class candidate {
     private Date date_of_birth;
     private String contact_number;
 
+    
+
+    public candidate(String name, String email, Date date_of_birth, String contact_number) {
+        this.name = name;
+        this.email = email;
+        this.date_of_birth = date_of_birth;
+        this.contact_number = contact_number;
+    }
     public candidate(int id, String name, String email, Date date_of_birth, String contact_number) {
         this.id = id;
         this.name = name;

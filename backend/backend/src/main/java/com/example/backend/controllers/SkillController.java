@@ -1,5 +1,7 @@
 package com.example.backend.controllers;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +17,7 @@ import com.example.backend.models.skill;
 public class SkillController {
     
     @PostMapping("/addskills")
-    public skill addSkills(@RequestBody skill skill){
-        return new SkillRepo().addSkills(skill);
+    public String addSkills(@RequestBody List<skill> skills){
+        return new SkillRepo().addSkills(skills);
     }
 }

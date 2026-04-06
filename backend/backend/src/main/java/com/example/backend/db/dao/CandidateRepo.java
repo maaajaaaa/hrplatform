@@ -34,13 +34,48 @@ public class CandidateRepo {
     }
 
     public String deleteCandidate(String candidate) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteCandidate'");
+        try (
+            Connection conn = DB.source().getConnection();
+            PreparedStatement pstmt = conn.prepareStatement("delete from candidates where name = ?");
+        ) {
+            pstmt.setString(1, candidate);
+
+            if( pstmt.executeUpdate() > 0 ) {
+                return "Candidate deleted successfully.";
+            }
+            else {
+                return "Error.";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public candidate getCandidate(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCandidate'");
+        try (
+            Connection conn = DB.source().getConnection();
+            PreparedStatement pstmt = conn.prepareStatement("select * from candidates where name = ?");
+        ) {
+            pstmt.setString(1, name);
+            var rs = pstmt.executeQuery();
+
+            if( rs.next() ) {
+                return new candidate(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("email"),
+                    rs.getDate("date_of_birth"),
+                    rs.getString("contact_number")
+                );
+            }
+            else {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     
 }
