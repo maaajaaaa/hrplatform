@@ -5,13 +5,15 @@ import java.sql.PreparedStatement;
 // import java.sql.ResultSet;
 // import java.sql.SQLException;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.backend.db.DB;
 import com.example.backend.models.candidate;
 
+@Repository
 public class CandidateRepo implements CandidateRepoInterface {
 
     public String addCandidate(candidate candidate) {
-        //check if candidate already exists or email is already used
         try (
             Connection conn = DB.source().getConnection();
             PreparedStatement pstmt = conn.prepareStatement("insert into candidates (name, date_of_birth, contact_number, email) values (?, ?, ?, ?)");

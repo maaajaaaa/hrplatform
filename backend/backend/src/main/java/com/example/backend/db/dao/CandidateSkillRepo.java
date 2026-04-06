@@ -2,11 +2,15 @@ package com.example.backend.db.dao;
 
 import java.sql.PreparedStatement;
 import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
 import java.sql.Connection;
 
 import com.example.backend.db.DB;
 import com.example.backend.models.candidate;
 
+@Repository
 public class CandidateSkillRepo implements CandidateSkillRepoInterface {
 
     public String addSkillToCandidate(int candidate, int skill) {

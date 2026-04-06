@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.backend.db.DB;
 import com.example.backend.models.skill;
 
+@Repository
 public class SkillRepo implements SkillRepoInterface {
 
     public String addSkills(List<skill> skills) {

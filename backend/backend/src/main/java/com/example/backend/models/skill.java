@@ -4,6 +4,9 @@ public class skill {
     private int id;
     private String name;
 
+    
+    public skill() {
+    }
     public skill(int id, String name) {
         this.id = id;
         this.name = name;

@@ -5,6 +5,8 @@ public class candidateskill {
     private int skill_id;
 
     
+    public candidateskill() {
+}
     public candidateskill(int candidate_id, int skill_id) {
         this.candidate_id = candidate_id;
         this.skill_id = skill_id;

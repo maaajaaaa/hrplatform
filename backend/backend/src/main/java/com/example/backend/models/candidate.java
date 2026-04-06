@@ -11,6 +11,8 @@ public class candidate {
 
     
 
+    public candidate() {
+    }
     public candidate(String name, String email, Date date_of_birth, String contact_number) {
         this.name = name;
         this.email = email;
